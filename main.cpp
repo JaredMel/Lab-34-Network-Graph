@@ -5,15 +5,15 @@ using namespace std;
 
 const int SIZE = 7;
 
-void DFSRec(vector<vector<Pair>>&, vector<bool>&, int);
-void DFS(vector<vector<Pair>>&, int);
-void bfs(vector<vector<Pair>>&, int);
-
 struct Edge {
     int src, dest, weight;
 };
 
 typedef pair<int, int> Pair; // Creates alias 'Pair' for the pair<int,int> data type
+
+void DFSRec(vector<vector<Pair>>&, vector<bool>&, int);
+void DFS(vector<vector<Pair>>&, int);
+void bfs(vector<vector<Pair>>&, int);
 
 class Graph {
 public:
@@ -65,6 +65,8 @@ int main() {
 
     cout << "DFS starting from vertex 0:" << endl;
     DFS(graph.adjList, 0);
+    cout << endl << "BFS starting from vertex 0:" << endl;
+    bfs(graph.adjList, 0);
 
     return 0;
 }
@@ -79,7 +81,7 @@ void DFSRec(vector<vector<Pair>> &adj, vector<bool> &visited, int s){
 
     // Recursively visit all adjacent vertices
     // that are not visited yet
-    for (Pair i : adj[s])
+    for (int i : adj[s])
         if (visited[i] == false)
             DFSRec(adj, visited, i);
 }
