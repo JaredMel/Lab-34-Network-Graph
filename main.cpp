@@ -81,9 +81,9 @@ void DFSRec(vector<vector<Pair>> &adj, vector<bool> &visited, int s){
 
     // Recursively visit all adjacent vertices
     // that are not visited yet
-    for (int i : adj[s])
-        if (visited[i] == false)
-            DFSRec(adj, visited, i);
+    for (Pair i : adj[s])
+        if (visited[i.first] == false)
+            DFSRec(adj, visited, i.first);
 }
 
 // Main DFS function that initializes the visited array
@@ -119,10 +119,10 @@ void bfs(vector<vector<Pair>>& adj, int s)
         // Get all adjacent vertices of the dequeued 
         // vertex curr If an adjacent has not been 
         // visited, mark it visited and enqueue it
-        for (int x : adj[curr]) {
-            if (!visited[x]) {
-                visited[x] = true;
-                q.push(x);
+        for (Pair x : adj[curr]) {
+            if (!visited[x.first]) {
+                visited[x.first] = true;
+                q.push(x.first);
             }
         }
     }
