@@ -16,7 +16,6 @@ void DFSRec(vector<vector<Pair>>&, vector<bool>&, int);
 void DFS(vector<vector<Pair>>&, int);
 void bfs(vector<vector<Pair>>&, int);
 void shortestPath(vector<vector<Pair>>&, int);
-void dijkstra(vector<vector<Pair>>&, int);
 int minDistance(int[], bool[]);
 
 class Graph {
@@ -147,20 +146,7 @@ void bfs(vector<vector<Pair>>& adj, int s)
     }
 }
 
-void shortestPath(vector<vector<Pair>>& adj, int s)
-{
-    int path;
-
-    for (int i = 0; i < adj.size(); i++) {
-            path = 0;
-            
-            cout << "0 -> " << i << " : ";
-            for (Pair v : adj[i])
-                cout << " -> Point " << v.first << " (Pacing: " << v.second << " km)" << endl;
-        }
-}
-
-void dijkstra(vector<vector<Pair>>& adj, int src)
+void shortestPath(vector<vector<Pair>>& adj, int src)
 {
     int dist[SIZE]; // The output array.  dist[i] will hold the
                  // shortest
@@ -204,7 +190,8 @@ void dijkstra(vector<vector<Pair>>& adj, int src)
     }
 
     // print the constructed distance array
-    
+    for (int i = 0; i < SIZE; i++)
+        cout << "0 -> " << i << " : " << dist[i] << endl;
 }
 
 int minDistance(int dist[], bool sptSet[])
