@@ -4,6 +4,7 @@
 using namespace std;
 
 const int SIZE = 9;
+const string arr[9] = {"Starting Point", "Abandonded Building", "Battlefield", "Main City", "Raider Territory", "Second City", "Minefield", "Third City", "Sea"};
 
 struct Edge {
     int src, dest, weight;
@@ -40,7 +41,6 @@ public:
 
     // Print the graph's adjacency list
     void printGraph() {
-        string arr[9] = {"Starting Point", "Abandonded Building", "Battlefield", "Main City", "Raider Territory", "Second City", "Minefield", "Third City", "Sea"};
         cout << "Character Pathing Network:" << endl << "==========================" << endl;
         for (int i = 0; i < adjList.size(); i++) {
             cout << "Point " << i << " (" << arr[i] << ") connects to:" << endl;
@@ -64,9 +64,11 @@ int main() {
     // Prints adjacency list representation of graph
     graph.printGraph();
 
-    cout << "DFS starting from vertex 0:" << endl;
+    cout << "Network Trace (DFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
+    cout << "==========================" << endl;
     DFS(graph.adjList, 0);
-    cout << endl << "BFS starting from vertex 0:" << endl;
+    cout << "Layer-by-Layer Network Inspect (BFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
+    cout << "==========================" << endl;
     bfs(graph.adjList, 0);
 
     return 0;
@@ -78,7 +80,8 @@ void DFSRec(vector<vector<Pair>> &adj, vector<bool> &visited, int s){
     visited[s] = true;
 
     // Print the current vertex
-    cout << s << " ";
+    cout << "Current Position at Point " << s << " (" << arr[s] << ")" << endl;
+    cout << " -> Potential move to Point ";
 
     // Recursively visit all adjacent vertices
     // that are not visited yet
