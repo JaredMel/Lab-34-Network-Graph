@@ -125,13 +125,14 @@ void bfs(vector<vector<Pair>>& adj, int s)
         // Dequeue a vertex from queue and print it
         int curr = q.front();
         q.pop();
-        cout << curr << " ";
+        cout << "Current Position at Point " << curr << " (" << arr[curr] << ")" << endl;
 
         // Get all adjacent vertices of the dequeued 
         // vertex curr If an adjacent has not been 
         // visited, mark it visited and enqueue it
         for (Pair x : adj[curr]) {
             if (!visited[x.first]) {
+                cout << " -> Potential move to Point " << x.first << " (" << arr[x.first] << ") - Pacing: " << x.second << " km" << endl;
                 visited[x.first] = true;
                 q.push(x.first);
             }
