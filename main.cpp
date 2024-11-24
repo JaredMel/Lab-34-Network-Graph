@@ -161,13 +161,20 @@ int main() {
     // Creates graph
     Graph graph(edges);
 
-    int choice;
+    int choice = 1;
     while (choice != 0)
     {
         do
         {
-            cout << 
-        } while (/* condition */);
+            cout << "Character Pathing Network Menu:" << endl;
+            cout << "[1] Display character pathing network" << endl;
+            cout << "[2] Visit all Locations (BFS)" << endl;
+            cout << "[3] Visit all Locations (DFS)" << endl;
+            cout << "[4] Calculate shortest paths" << endl;
+            cout << "[0] Exit" << endl;
+            cout << "Enter your choice:" << endl;
+            cin >> choice;
+        } while (choice < 0 || choice > 4);
         
         switch (choice)
         {
@@ -310,6 +317,7 @@ void shortestPath(vector<vector<Pair>>& adj, int src)
     // print the constructed distance array
     for (int i = 0; i < SIZE; i++)
         cout << "0 -> " << i << " : " << dist[i] << endl;
+    cout << endl;
 }
 
 int minDistance(int dist[], bool sptSet[])
