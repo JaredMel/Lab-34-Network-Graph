@@ -15,6 +15,7 @@ typedef pair<int, int> Pair; // Creates alias 'Pair' for the pair<int,int> data 
 void DFSRec(vector<vector<Pair>>&, vector<bool>&, int);
 void DFS(vector<vector<Pair>>&, int);
 void bfs(vector<vector<Pair>>&, int);
+void shortestPath(vector<vector<Pair>>&, int);
 
 class Graph {
 public:
@@ -71,6 +72,10 @@ int main() {
     cout << "Layer-by-Layer Network Inspect (BFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
     cout << "==========================" << endl;
     bfs(graph.adjList, 0);
+    cout << endl;
+
+    cout << "Shortest path from node 0:" << endl;
+    shortestPath(graph.adjList, 0);
 
     return 0;
 }
@@ -138,4 +143,17 @@ void bfs(vector<vector<Pair>>& adj, int s)
             }
         }
     }
+}
+
+void shortestPath(vector<vector<Pair>>& adj, int s)
+{
+    int path;
+
+    for (int i = 0; i < adj.size(); i++) {
+            path = 0;
+            
+            cout << "0 -> " << i << " : ";
+            for (Pair v : adj[i])
+                cout << " -> Point " << v.first << " (Pacing: " << v.second << " km)" << endl;
+        }
 }
