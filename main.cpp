@@ -40,9 +40,10 @@ public:
 
     // Print the graph's adjacency list
     void printGraph() {
-        cout << "Graph's adjacency list:" << endl;
+        string arr[8] = {"Starting Point", "Abandonded Building", "Battlefield", "Main City", "Raider Territory", "Second City", "Minefield", "Third City"};
+        cout << "Character Pathing Network:" << endl << "==========================" << endl;
         for (int i = 0; i < adjList.size(); i++) {
-            cout << i << " --> ";
+            cout << "Point " << i << " (" << arr[i] << ") connects to:" << endl;
             for (Pair v : adjList[i])
                 cout << "(" << v.first << ", " << v.second << ") ";
             cout << endl;
