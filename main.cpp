@@ -161,20 +161,40 @@ int main() {
     // Creates graph
     Graph graph(edges);
 
-    // Prints adjacency list representation of graph
-    graph.printGraph();
-
-    cout << "Network Trace (DFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
-    cout << "==========================" << endl;
-    DFS(graph.adjList, 0);
-    cout << endl;
-    cout << "Layer-by-Layer Network Inspect (BFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
-    cout << "==========================" << endl;
-    bfs(graph.adjList, 0);
-    cout << endl;
-
-    cout << "Shortest path from node 0:" << endl;
-    shortestPath(graph.adjList, 0);
+    int choice;
+    while (choice != 0)
+    {
+        do
+        {
+            cout << 
+        } while (/* condition */);
+        
+        switch (choice)
+        {
+        case 1:
+            // Prints adjacency list representation of graph
+            graph.printGraph();
+            break;
+        case 2:
+            cout << "Layer-by-Layer Network Inspect (BFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
+            cout << "==========================" << endl;
+            bfs(graph.adjList, 0);
+            cout << endl;
+            break;
+        case 3:
+            cout << "Network Trace (DFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
+            cout << "==========================" << endl;
+            DFS(graph.adjList, 0);
+            cout << endl;
+            break;
+        case 4:
+            cout << "Shortest path from node 0:" << endl;
+            shortestPath(graph.adjList, 0);
+            break;
+        default:
+            break;
+        }
+    }
 
     return 0;
 }
