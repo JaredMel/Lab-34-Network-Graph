@@ -67,6 +67,7 @@ int main() {
     cout << "Network Trace (DFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
     cout << "==========================" << endl;
     DFS(graph.adjList, 0);
+    cout << endl;
     cout << "Layer-by-Layer Network Inspect (BFS) from Point 0 (Starting Point):" << endl << "Purpose: Visit all Locations";
     cout << "==========================" << endl;
     bfs(graph.adjList, 0);
@@ -81,7 +82,13 @@ void DFSRec(vector<vector<Pair>> &adj, vector<bool> &visited, int s){
 
     // Print the current vertex
     cout << "Current Position at Point " << s << " (" << arr[s] << ")" << endl;
-    cout << " -> Potential move to Point ";
+    for (Pair v : adj[s])
+    {
+        if (!visited[v.first])
+        {
+            cout << " -> Potential move to Point " << v.first << " (" << arr[v.first] << ") - Pacing: " << v.second << " km" << endl;
+        }
+    }
 
     // Recursively visit all adjacent vertices
     // that are not visited yet
